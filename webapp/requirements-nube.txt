@@ -1,0 +1,15 @@
+# Dependencias para desplegar la web app en la nube (Linux, NVIDIA o CPU).
+#
+# IMPORTANTE: NO uses el PyTorch ROCm de Windows. Instala torch/torchvision
+# segun el servidor:
+#   - GPU NVIDIA:  pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+#   - Solo CPU:    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# y luego instala el resto con:  pip install -r requirements-nube.txt
+
+torch
+torchvision
+rfdetr
+Pillow
+fastapi
+uvicorn[standard]
+python-multipart

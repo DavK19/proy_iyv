@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detección de plantas invasoras — Cundinamarca</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1>Detección de plantas invasoras</h1>
+        <p class="sub">Cundinamarca, Colombia · modelo <strong>RF-DETR</strong> (mAP50 0.637)</p>
+      </div>
+      <span id="estado-modelo" class="badge badge-muted">conectando…</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Columna izquierda: entrada + imagen -->
+    <section class="col-main">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button"
+           aria-label="Arrastra una imagen o haz clic para elegir">
+        <div class="dz-content">
+          <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path fill="currentColor" d="M19 13v6H5v-6H3v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2zM11 4.83V15h2V4.83l3.59 3.58L18 7l-6-6-6 6 1.41 1.41L11 4.83z"/>
+          </svg>
+          <p class="dz-title">Arrastra una imagen aquí</p>
+          <p class="dz-hint">o haz clic para elegir · JPG, PNG o WEBP (máx. 15 MB)</p>
+        </div>
+        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+      </div>
+
+      <div id="canvas-wrap" class="canvas-wrap" hidden>
+        <canvas id="canvas"></canvas>
+        <div id="spinner" class="spinner-overlay" hidden>
+          <div class="spinner"></div>
+          <span>Analizando…</span>
+        </div>
+      </div>
+
+      <div class="controls" id="controls" hidden>
+        <label class="control">
+          <span>Umbral de confianza: <strong id="thr-val">0.30</strong></span>
+          <input id="threshold" type="range" min="0.05" max="0.9" step="0.05" value="0.30" />
+        </label>
+        <button id="btn-otra" class="btn btn-ghost">Otra imagen</button>
+      </div>
+    </section>
+
+    <!-- Columna derecha: resultados -->
+    <aside class="col-side">
+      <div id="banner" class="banner banner-idle">
+        Sube una imagen para detectar especies invasoras.
+      </div>
+
+      <div class="card">
+        <h2>Conteo por especie</h2>
+        <ul id="por-clase" class="por-clase">
+          <li class="vacio">—</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Detecciones <span id="det-count" class="count">0</span></h2>
+        <ul id="lista-det" class="lista-det">
+          <li class="vacio">Aún no hay resultados.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    Proyecto universitario de visión por computador · inferencia local en GPU.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
