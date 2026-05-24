@@ -14,6 +14,7 @@ RUN apt-get update \
         libxcb1 \
         libx11-6 \
         libxext6 \
+        libgl1 \
         libxrender1 \
         libsm6 \
         libglib2.0-0 \
