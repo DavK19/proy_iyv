@@ -1,38 +1,46 @@
+# Detección de plantas invasoras 🌿
+
+Proyecto universitario de visión por computador para **detectar especies de plantas
+invasoras en Cundinamarca, Colombia** a partir de imágenes.
+
+## Propósito
+
+Las plantas invasoras desplazan a las especies nativas y afectan los ecosistemas.
+Este proyecto entrena modelos de detección de objetos capaces de **identificar y
+localizar** automáticamente 4 especies invasoras en una foto:
+
+- Acacia negra
+- Buchón de agua
+- Helecho de agua
+- Retamo espinoso
+
+El objetivo es **comparar de forma justa** tres arquitecturas de detección
+—**RT-DETR**, **RF-DETR** y **YOLO**— entrenadas sobre el mismo conjunto de datos
+y evaluadas sobre las mismas imágenes, para determinar cuál funciona mejor en este
+caso real.
+
+## Cómo funciona
+
+1. Las imágenes se anotan y exportan desde Roboflow (formatos COCO y YOLO).
+2. Un proceso de preparación construye los datasets y fija una división común de
+   entrenamiento/validación, igual para todos los modelos.
+3. Se entrena cada modelo mediante *transfer learning* (a partir de pesos
+   preentrenados) sobre GPU local.
+4. Se comparan los resultados con las mismas métricas (mAP, precisión, recall).
+
+## Resultados (RF-DETR)
+
+| Métrica   | Valor |
+| ---------- | ----- |
+| mAP@50     | 0.64  |
+| Precisión | 0.83  |
+| Recall     | 0.54  |
+
+## Demo web
+
+Incluye una aplicación web sencilla (`webapp/`) para arrastrar una imagen y ver las
+detecciones en el navegador, usando el mejor modelo RF-DETR del proyecto.
+
 ---
-title: Proy Iyv
-emoji: 🌖
-colorFrom: gray
-colorTo: pink
-sdk: docker
-pinned: false
----
 
-## RF-DETR demo para Hugging Face Spaces
-
-Este repositorio está preparado para desplegar la web app en **Hugging Face Spaces** usando **Docker**.
-
-## Incluye
-
-- `Dockerfile` para Spaces.
-- `checkpoint_best_regular.pth` como modelo entrenado.
-- `webapp/` con la API FastAPI y el frontend estático.
-
-## Variables clave
-
-- `RFDETR_CKPT=/app/checkpoint_best_regular.pth`
-- `PORT=7860`
-
-## Build local
-
-```bash
-docker build -t plantas-invasoras-hf .
-docker run -p 7860:7860 plantas-invasoras-hf
-```
-
-## Push a Spaces
-
-1. Inicia sesión en Hugging Face.
-2. Crea un Space con SDK `Docker`.
-3. Sube este repositorio con Git LFS habilitado para `*.pth`.
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+> Proyecto académico. Código, comentarios y documentación en español.
