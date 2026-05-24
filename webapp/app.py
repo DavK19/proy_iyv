@@ -6,7 +6,7 @@ sola vez al arrancar y corre en la GPU (AMD/ROCm) si está disponible. Las imág
 en memoria y NO se persisten.
 
 Ejecutar:
-    .\.venv-rocm\Scripts\python.exe -m uvicorn webapp.app:app --host 0.0.0.0 --port 8000
+    .\\.venv-rocm\\Scripts\\python.exe -m uvicorn webapp.app:app --host 0.0.0.0 --port 8000
 """
 from __future__ import annotations
 

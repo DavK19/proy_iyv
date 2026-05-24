@@ -1,1 +1,7 @@
-checkpoint_best_regular.pth
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.DS_Store
+*.pyc
