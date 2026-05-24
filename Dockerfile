@@ -8,7 +8,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends git-lfs libgomp1 \
+    && apt-get install -y --no-install-recommends \
+        git-lfs \
+        libgomp1 \
+        libxcb1 \
+        libx11-6 \
+        libxext6 \
+        libxrender1 \
+        libsm6 \
+        libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY webapp/requirements-nube.txt /tmp/requirements-nube.txt
