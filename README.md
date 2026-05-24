@@ -1,4 +1,13 @@
-# RF-DETR demo para Hugging Face Spaces
+---
+title: Proy Iyv
+emoji: 🌖
+colorFrom: gray
+colorTo: pink
+sdk: docker
+pinned: false
+---
+
+## RF-DETR demo para Hugging Face Spaces
 
 Este repositorio está preparado para desplegar la web app en **Hugging Face Spaces** usando **Docker**.
 
@@ -25,3 +34,5 @@ docker run -p 7860:7860 plantas-invasoras-hf
 1. Inicia sesión en Hugging Face.
 2. Crea un Space con SDK `Docker`.
 3. Sube este repositorio con Git LFS habilitado para `*.pth`.
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
